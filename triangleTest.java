@@ -1,23 +1,33 @@
-import org.junit.Test;
-import java.util.Random;
+import org.junit.*;
 import static org.junit.Assert.*;
 
 /**
- * Created by Jason_Hartung on 7/22/2016.
+ * Created by Jason on 7/23/2016.
  */
-
 public class triangleTest extends triangle{
     @Test
-    public void testInput() throws Exception {
-        getSides();
+    public void jasonIsABoneHead() throws Exception {
+        double[] s = {1, 1, 3};
+        assertEquals(evaluateSides(s), " because he didn't test for Triangle Inequality");
     }
     @Test
-    public void testEquilateralTriangle() throws Exception {
-        int a = 1;
-        int b = 2;
-        int c = 3;
-        evaluateSides(a,b,c);
-        //assertEquals("The triangle is", "expected");
+    public void ifAnyLengthIsNotAPositiveInteger() throws Exception {
+        double[] s = {0,1,1};
+        assertEquals(evaluateSides(s)," then it's not a triangle.");
     }
-
+    @Test
+    public void ifAllLengthsAreEqual(){
+        double[] s = {1,1,1};
+        assertEquals(evaluateSides(s)," the triangle is equilateral.");
+    }
+    @Test
+    public void ifAnyTwoSidesAreEqual(){
+        double[] s = {1,2,2};
+        assertEquals(evaluateSides(s)," the triangle is isosceles.");
+    }
+    @Test
+    public void ifAllSidesAreDifferent(){
+        double[] s = {1,2,3};
+        assertEquals(evaluateSides(s)," the triangle is scalene.");
+    }
 }
